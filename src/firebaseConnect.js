@@ -11,4 +11,5 @@ var firebaseConfig = {
     appId: "1:929094039791:web:233ce88ace69e25690831a",
     measurementId: "G-RWHGG3079B"
   };
-  export const firebaseConnect=firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
+  export const firebaseConnect=firebase.database().ref('reactnotelist');

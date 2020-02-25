@@ -1,30 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import {firebaseConnect} from './firebaseConnect';
-function App() {
-  var data=firebaseConnect.database().ref('Node1/');
-  data.push({
-    name:"asdasd"
-  })
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Nav from './Component/Nav';
+import Content from './Component/Content';
+import React, { Component } from 'react';
+import store from './Store/Store.js';
+import { Provider } from 'react-redux';
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  DataNode = (DataNode) =>{
+  //  firebaseConnect.once('value').then(function(snapshot){
+  //     console.log(snapshot);
+      
+  //   });  
+  firebaseConnect.push({DataNode});
+  }
+  render() {
+    return (
+    <Provider store={store}>
+     <div className="App">
+      <Nav/>
+      <Content/>
+    </div>
+    </Provider>
+    );
+  }
+}
 export default App;
