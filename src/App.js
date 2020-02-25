@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import {firebaseConnect} from './firebaseConnect';
 function App() {
+  var data=firebaseConnect.database().ref('Node1/');
+  data.push({
+    name:"asdasd"
+  })
   return (
     <div className="App">
       <header className="App-header">
