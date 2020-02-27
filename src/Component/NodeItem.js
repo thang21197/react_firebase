@@ -12,6 +12,8 @@ class NodeItem extends Component {
     this.props.getDataEdit(dataEdit)
   } 
     render() {
+      console.log(this.props.node);
+      
         return (
          <div className="card">
             <div className="card-header" role="tab" id="section2HeaderId">

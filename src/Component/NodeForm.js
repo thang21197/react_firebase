@@ -15,6 +15,7 @@ class NodeForm extends Component {
     }
     render() {
         
+        console.log(this.props.DataEdit);
         
         return (
             <div className="col-md-4">
@@ -22,10 +23,10 @@ class NodeForm extends Component {
           <div className="card-body text-center">
             <h3 className="card-title text-center">Edit Note list</h3>
             <div className="form-group">
-              <input type="text" className="form-control" name="title" onChange={(event) =>{this.isChange(event)}} aria-describedby="helpId" placeholder="Title" />
+              <input defaultValue={this.props.DataEdit.title} type="text" className="form-control" name="title" onChange={(event) =>{this.isChange(event)}} aria-describedby="helpId" placeholder="Title" />
             </div>
             <div className="form-group">
-              <textarea className="form-control"  name="content" onChange={(event) =>{this.isChange(event)}}  rows={3} placeholder="Content" defaultValue={""} />
+              <textarea className="form-control"  name="content" onChange={(event) =>{this.isChange(event)}}  rows={3} placeholder="Content" defaultValue={this.props.DataEdit.content} />
             </div>
             <button type="submit" onClick={() =>{this.isSave()}}className="btn btn-primary px-5">Save</button>
           </div>

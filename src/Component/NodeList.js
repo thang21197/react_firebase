@@ -30,7 +30,7 @@ class NodeList extends Component {
     }
     showDataList   = () => {
         return this.state.dataArray.map((value,key) => {
-           return  <NodeItem key={value.key} idtoggle={value.key} title={value.title} content={value.content}  />
+           return  <NodeItem node={value} key={value.key} idtoggle={value.key} title={value.title} content={value.content}  />
          } )
          
     } 
