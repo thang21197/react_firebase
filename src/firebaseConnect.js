@@ -12,4 +12,4 @@ var firebaseConfig = {
     measurementId: "G-RWHGG3079B"
   };
   firebase.initializeApp(firebaseConfig);
-  export const firebaseConnect=firebase.database().ref('reactnotelist');
+  export const firebaseConnect=firebase.database().ref('/reactnotelist');

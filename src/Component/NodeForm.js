@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    addData: (getData) => {
-      dispatch({type:"ADD_DATA",getData})
-    }
-  }
-}
 
 class NodeForm extends Component {
-     constructor(props) {
-       super(props);
-       
-     }
+   
     isChange = (event) =>{
        let name=event.target.name;
        let value=event.target.value;
@@ -44,4 +34,16 @@ class NodeForm extends Component {
         );
     }
 }
-export default connect(null,mapDispatchToProps)(NodeForm);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addData: (getData) => {
+      dispatch({type:"ADD_DATA",getData})
+    }
+  }
+}
+const mapStateToProps = (state, ownProps) => {
+  return {
+    DataEdit: state.DataEdit
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(NodeForm);

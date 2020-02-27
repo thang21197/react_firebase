@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import NodeForm from './NodeForm';
 import NodeList from './NodeList';
+import { connect } from 'react-redux';
 
 class Content extends Component {
+    showForm   = () => {
+      if(this.props.isShowFormNode){
+        return <NodeForm/>
+      }
+    } 
     render() {
         return (
     <div className="container">
@@ -13,11 +19,15 @@ class Content extends Component {
             </div>
           </div>
           <NodeList/>
-          <NodeForm/>
+          {this.showForm()}
         </div>
       </div>
         );
     }
 }
-
-export default Content;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    isShowFormNode: state.isShowFormNode
+  }
+}
+export default connect(mapStateToProps)(Content)

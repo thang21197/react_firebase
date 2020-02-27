@@ -8,9 +8,7 @@ import store from './Store/Store.js';
 import { Provider } from 'react-redux';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   DataNode = (DataNode) =>{
   //  firebaseConnect.once('value').then(function(snapshot){
   //     console.log(snapshot);
